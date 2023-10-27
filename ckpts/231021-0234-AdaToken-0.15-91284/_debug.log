@@ -1,0 +1,134 @@
+[2023-10-21 02:34:05,405, INFO] : Cache at /data1/ay0119/hf-cache
+[2023-10-21 02:34:05,405, INFO] : Log Dir at /data1/ay0119/bert-tiny-main/all/google/bert_uncased_L-2_H-128_A-2/231021-0234-AdaToken-0.15-91284
+[2023-10-21 02:34:05,406, INFO] : Model from scratch : google/bert_uncased_L-2_H-128_A-2
+[2023-10-21 02:34:05,552, INFO] : Cache at /data1/ay0119/hf-cache
+[2023-10-21 02:34:05,552, INFO] : Log Dir at /data1/ay0119/bert-tiny-main/all/google/bert_uncased_L-2_H-128_A-2/231021-0234-AdaToken-0.15-91284
+[2023-10-21 02:34:05,552, INFO] : Model from scratch : google/bert_uncased_L-2_H-128_A-2
+[2023-10-21 02:34:13,293, INFO] : bookcorpus raw data 
+Dataset({
+    features: ['text'],
+    num_rows: 74004228
+})
+[2023-10-21 02:34:13,293, INFO] : wikipedia raw data 
+Dataset({
+    features: ['text'],
+    num_rows: 6458670
+})
+[2023-10-21 02:34:13,293, INFO] : concat raw data 
+Dataset({
+    features: ['text'],
+    num_rows: 80462898
+})
+[2023-10-21 02:34:13,293, INFO] : MLM process function started
+[2023-10-21 02:34:13,562, INFO] : bookcorpus raw data 
+Dataset({
+    features: ['text'],
+    num_rows: 74004228
+})
+[2023-10-21 02:34:13,562, INFO] : wikipedia raw data 
+Dataset({
+    features: ['text'],
+    num_rows: 6458670
+})
+[2023-10-21 02:34:13,563, INFO] : concat raw data 
+Dataset({
+    features: ['text'],
+    num_rows: 80462898
+})
+[2023-10-21 02:34:13,563, INFO] : MLM process function started
+[2023-10-21 02:34:14,711, INFO] : MLM process function Done
+[2023-10-21 02:34:14,744, INFO] : Split started
+[2023-10-21 02:34:14,948, INFO] : MLM process function Done
+[2023-10-21 02:34:14,980, INFO] : Split started
+[2023-10-21 02:34:15,404, INFO] : Split Done
+[2023-10-21 02:34:15,406, DEBUG] : grouping took 1.4177274703979492
+[2023-10-21 02:34:15,407, DEBUG] : split took 0.6590690612792969
+[2023-10-21 02:34:15,588, INFO] : Split Done
+[2023-10-21 02:34:15,589, DEBUG] : grouping took 1.3856265544891357
+[2023-10-21 02:34:15,590, DEBUG] : split took 0.6062994003295898
+[2023-10-21 02:34:15,674, INFO] : Dataset 
+	 DatasetDict({
+    train: Dataset({
+        features: ['input_ids', 'attention_mask'],
+        num_rows: 10743786
+    })
+    test: Dataset({
+        features: ['input_ids', 'attention_mask'],
+        num_rows: 108
+    })
+})
+[2023-10-21 02:34:15,675, DEBUG] : seed = 91284
+[2023-10-21 02:34:15,676, DEBUG] : device = cuda:4
+[2023-10-21 02:34:15,677, DEBUG] : cache_dir = /data1/ay0119/hf-cache
+[2023-10-21 02:34:15,678, DEBUG] : model_type = google/bert_uncased_L-2_H-128_A-2
+[2023-10-21 02:34:15,679, DEBUG] : ckpt = None
+[2023-10-21 02:34:15,679, DEBUG] : data = all
+[2023-10-21 02:34:15,680, DEBUG] : train_test_split = 1e-05
+[2023-10-21 02:34:15,680, DEBUG] : max_seq_length = 512
+[2023-10-21 02:34:15,680, DEBUG] : lr = 0.0001
+[2023-10-21 02:34:15,680, DEBUG] : lr_scheduler = linear
+[2023-10-21 02:34:15,680, DEBUG] : warmup_steps = 10000
+[2023-10-21 02:34:15,680, DEBUG] : adam_beta1 = 0.9
+[2023-10-21 02:34:15,680, DEBUG] : adam_beta2 = 0.999
+[2023-10-21 02:34:15,680, DEBUG] : adam_eps = 1e-08
+[2023-10-21 02:34:15,680, DEBUG] : wd = 0.01
+[2023-10-21 02:34:15,680, DEBUG] : dropout = 0.1
+[2023-10-21 02:34:15,680, DEBUG] : epochs = 40
+[2023-10-21 02:34:15,680, DEBUG] : b_train = 16
+[2023-10-21 02:34:15,680, DEBUG] : max_steps = 250000
+[2023-10-21 02:34:15,680, DEBUG] : gradient_accumulation_steps = 4
+[2023-10-21 02:34:15,680, DEBUG] : p = 0.15
+[2023-10-21 02:34:15,680, DEBUG] : ada_token = True
+[2023-10-21 02:34:15,680, DEBUG] : ada_memo = False
+[2023-10-21 02:34:15,680, DEBUG] : cosine = False
+[2023-10-21 02:34:15,680, DEBUG] : step = False
+[2023-10-21 02:34:15,680, DEBUG] : train = True
+[2023-10-21 02:34:15,680, DEBUG] : test = False
+[2023-10-21 02:34:15,680, DEBUG] : logging_steps = 10000
+[2023-10-21 02:34:15,680, DEBUG] : save_steps = 50000
+[2023-10-21 02:34:15,680, DEBUG] : local_rank = 0
+[2023-10-21 02:34:15,680, DEBUG] : world_size = 0
+[2023-10-21 02:34:15,886, INFO] : Dataset 
+	 DatasetDict({
+    train: Dataset({
+        features: ['input_ids', 'attention_mask'],
+        num_rows: 10743786
+    })
+    test: Dataset({
+        features: ['input_ids', 'attention_mask'],
+        num_rows: 108
+    })
+})
+[2023-10-21 02:34:15,887, DEBUG] : seed = 91284
+[2023-10-21 02:34:15,888, DEBUG] : device = cuda:4
+[2023-10-21 02:34:15,889, DEBUG] : cache_dir = /data1/ay0119/hf-cache
+[2023-10-21 02:34:15,890, DEBUG] : model_type = google/bert_uncased_L-2_H-128_A-2
+[2023-10-21 02:34:15,892, DEBUG] : ckpt = None
+[2023-10-21 02:34:15,892, DEBUG] : data = all
+[2023-10-21 02:34:15,892, DEBUG] : train_test_split = 1e-05
+[2023-10-21 02:34:15,892, DEBUG] : max_seq_length = 512
+[2023-10-21 02:34:15,892, DEBUG] : lr = 0.0001
+[2023-10-21 02:34:15,892, DEBUG] : lr_scheduler = linear
+[2023-10-21 02:34:15,892, DEBUG] : warmup_steps = 10000
+[2023-10-21 02:34:15,892, DEBUG] : adam_beta1 = 0.9
+[2023-10-21 02:34:15,892, DEBUG] : adam_beta2 = 0.999
+[2023-10-21 02:34:15,892, DEBUG] : adam_eps = 1e-08
+[2023-10-21 02:34:15,892, DEBUG] : wd = 0.01
+[2023-10-21 02:34:15,892, DEBUG] : dropout = 0.1
+[2023-10-21 02:34:15,892, DEBUG] : epochs = 40
+[2023-10-21 02:34:15,892, DEBUG] : b_train = 16
+[2023-10-21 02:34:15,892, DEBUG] : max_steps = 250000
+[2023-10-21 02:34:15,892, DEBUG] : gradient_accumulation_steps = 4
+[2023-10-21 02:34:15,892, DEBUG] : p = 0.15
+[2023-10-21 02:34:15,892, DEBUG] : ada_token = True
+[2023-10-21 02:34:15,892, DEBUG] : ada_memo = False
+[2023-10-21 02:34:15,892, DEBUG] : cosine = False
+[2023-10-21 02:34:15,892, DEBUG] : step = False
+[2023-10-21 02:34:15,892, DEBUG] : train = True
+[2023-10-21 02:34:15,892, DEBUG] : test = False
+[2023-10-21 02:34:15,892, DEBUG] : logging_steps = 10000
+[2023-10-21 02:34:15,892, DEBUG] : save_steps = 50000
+[2023-10-21 02:34:15,892, DEBUG] : local_rank = 1
+[2023-10-21 02:34:15,892, DEBUG] : world_size = 0
+[2023-10-21 02:34:17,249, INFO] : Run Name : google/bert_uncased_L-2_H-128_A-2-AdaToken-0.15-91284
+[2023-10-21 02:34:17,488, INFO] : Run Name : google/bert_uncased_L-2_H-128_A-2-AdaToken-0.15-91284

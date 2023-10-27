@@ -72,6 +72,7 @@
 # (256, 32) (64, 125K) : 전처리 cache없음 for google
 # (128, 128) (4, 125K) : 13H 정도 
 # --model_type google/bert_uncased_L-2_H-128_A-2 \
+# BERT-large : seq len 128 batch 4 accum 1 3.7it/s
 
 export HF_DATASETS_CACHE="/data1/ay0119/hf-cache"
 CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch --nproc_per_node 2 /home/ay0119/bert-tiny-main/run_pretrain.py \
@@ -86,8 +87,8 @@ CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch --nproc_per_node 2 /
   --warmup_steps 10000\
   --adam_beta2 0.999\
   --epochs 40 \
-  --b_train 8 \
-  --gradient_accumulation_steps 1\
+  --b_train 4 \
+  --gradient_accumulation_steps 2\
   --seed 124 \
   --p 0.15 \
   --mask_tolerance 0.01\
