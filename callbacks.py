@@ -93,8 +93,16 @@ class AscMaskCallBack(TrainerCallback):
 
 class AdaMaskCallBack(TrainerCallback):
     def on_evaluate(self, args: TrainingArguments, state: TrainerState, control: TrainerControl, **kwargs):
+        # ticker = os.environ['P_TICKER']
+        # if ticker == 'UP':
+        #     os.environ['MASKING_P'] = str(0.2)
+        # elif ticker == 'DOWN':
+        #     os.environ['MASKING_P'] = str(0.15)
         _p = float(os.environ['MASKING_P'])
-        _increment = 0.004
+        # trial 1
+        # _increment = 0.005
+        # _increment = 0.0025
+        _increment = os.getenv('MASKING_INCRE')
         ticker = os.environ['P_TICKER']
         if _p < 0.10:
             return

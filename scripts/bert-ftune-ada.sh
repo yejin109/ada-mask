@@ -7,7 +7,8 @@
 # export CKPT_PATH=/data1/ay0119/ckpts/231016-200742-AdaToken-0.15-63126/checkpoint-900000
 # export CKPT_PATH=/data1/ay0119/ckpts/231018-130805-AdaToken-0.17-124/checkpoint-1000000
 # export CKPT_PATH=/data1/ay0119/ckpts/231019-0830-AdaToken-0.15-71261/checkpoint-1400000
-export CKPT_PATH=/data1/ay0119/ckpts/231024-0221-AdaToken-0.15-91284/checkpoint-1000000
+export CKPT_PATH=/data1/ay0119/ckpts/231009-200603-Const-0.15-124/checkpoint-800000
+export DEVICE=4
 
 # the best fine-tuning hyperparameters trained for 4 epochs:
 #     batch sizes: 8, 16, 32, 64, 128
@@ -17,7 +18,7 @@ export CKPT_PATH=/data1/ay0119/ckpts/231024-0221-AdaToken-0.15-91284/checkpoint-
 
 # [Stable config]
 export TASK_NAME=sst2
-CUDA_VISIBLE_DEVICES=5 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -37,7 +38,7 @@ CUDA_VISIBLE_DEVICES=5 python /home/ay0119/bert-tiny-main/run_glue.py \
 
 
 export TASK_NAME=mrpc
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -57,7 +58,7 @@ CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
   --overwrite_output_dir
 
 export TASK_NAME=rte
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -77,7 +78,7 @@ CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
   --overwrite_output_dir
 
 export TASK_NAME=mnli
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -97,7 +98,7 @@ CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
   --overwrite_output_dir
 
 export TASK_NAME=cola
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -117,7 +118,7 @@ CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
   --overwrite_output_dir
 
 export TASK_NAME=qnli
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -138,7 +139,7 @@ CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
 
 
 export TASK_NAME=qqp
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -158,7 +159,7 @@ CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
   --overwrite_output_dir
 
 export TASK_NAME=stsb
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \
@@ -179,7 +180,7 @@ CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
 
 
 export TASK_NAME=wnli
-CUDA_VISIBLE_DEVICES=4 python /home/ay0119/bert-tiny-main/run_glue.py \
+CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --model_name_or_path $CKPT_PATH\
   --config_name  google/bert_uncased_L-2_H-128_A-2 \
   --tokenizer_name  google/bert_uncased_L-2_H-128_A-2 \

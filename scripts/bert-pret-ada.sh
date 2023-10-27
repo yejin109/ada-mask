@@ -71,7 +71,7 @@
 # [>] (512, 16)에서 (4, 250K) --> 16H eff batch 64 : 즉 이전과 동일하게 학습을 하는데 gradient update를 accum해서 large batch 효과로
 # (256, 32) (64, 125K) : 전처리 cache없음 for google
 # (128, 128) (4, 125K) : 13H 정도 
-
+# --model_type google/bert_uncased_L-2_H-128_A-2 \
 
 export HF_DATASETS_CACHE="/data1/ay0119/hf-cache"
 CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch --nproc_per_node 2 /home/ay0119/bert-tiny-main/run_pretrain.py \
@@ -79,17 +79,19 @@ CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch --nproc_per_node 2 /
   --train \
   --data all\
   --cache_dir /data1/ay0119/hf-cache \
-  --model_type google/bert_uncased_L-2_H-128_A-2 \
+  --model_type bert-large-uncased\
   --train_test_split 0.00001\
-  --max_seq_length 512 \
+  --max_seq_length 128 \
   --lr 1e-4 \
   --warmup_steps 10000\
   --adam_beta2 0.999\
   --epochs 40 \
   --b_train 16 \
-  --gradient_accumulation_steps 4\
-  --seed 91284 \
+  --gradient_accumulation_steps 1\
+  --seed 124 \
   --p 0.15 \
-  --max_steps 250000\
-  --logging_steps 10000\
-  --save_steps 50000
+  --mask_tolerance 0.01\
+  --mask_increment 0.004\
+  --max_steps 200000\
+  --logging_steps 20000\
+  --save_steps 40000

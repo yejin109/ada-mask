@@ -245,7 +245,7 @@ def main():
     wandb.login(key='5bb26e3124589bc9e7a4d4aa19bd3ea2199e9d14')
     os.environ['WANDB_ENTITY'] = 'yejin109/lmcd'
     os.environ['WANDB_WATCH'] = 'all'
-    os.environ['WANDB_PROJECT'] = f'{data_args.task_name} - v10'
+    os.environ['WANDB_PROJECT'] = f'{data_args.task_name} - v11'
 
     if model_args.use_auth_token is not None:
         warnings.warn("The `use_auth_token` argument is deprecated and will be removed in v4.34.", FutureWarning)

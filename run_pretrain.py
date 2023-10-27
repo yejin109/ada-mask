@@ -54,7 +54,11 @@ parser.add_argument('--b_train', default=128, type=int)
 parser.add_argument('--max_steps', type=int, default=-1)
 parser.add_argument('--gradient_accumulation_steps', type=int, default=1)
 
+# Adaptive Masking
 parser.add_argument('--p', default=.15, type=float)
+parser.add_argument('--mask_tolerance', default=0.01, required=False, type=float)
+parser.add_argument('--mask_increment', default=0.005, required=False, type=float)
+
 parser.add_argument('--ada_token', default=False, required=False, action=argparse.BooleanOptionalAction)
 parser.add_argument('--ada_memo', default=False, required=False, action=argparse.BooleanOptionalAction)
 parser.add_argument('--cosine', default=False, required=False, action=argparse.BooleanOptionalAction)
@@ -271,7 +275,11 @@ def compute_metrics(eval_preds, _model, eps=1e-6):
     # write_env_var('MEMORIZATION', str(_memo))
 
     if args.ada_token:
-        _tolerance = 0.05
+        # trial 0
+        # _tolerance = 0.01
+        # trial 1 
+        # _tolerance = 0.05
+        _tolerance = args.mask_tolerance
 
         # _p_cnt = int(os.environ['P_CNT'])
         # V6 : use Token acc
@@ -285,6 +293,14 @@ def compute_metrics(eval_preds, _model, eps=1e-6):
             os.environ['P_TICKER'] = 'DOWN'
         else:
             os.environ['P_TICKER'] = 'STAY'
+    # if args.ada_token:
+    #     current_acc = acc_token
+    #     if current_acc > 0.3:
+    #         os.environ['P_TICKER'] = 'UP'
+    #     elif current_acc < 0.3:
+    #         os.environ['P_TICKER'] = 'DOWN'
+    #     else:
+    #         os.environ['P_TICKER'] = 'STAY'
     # if args.ada_memo:
     #     _tolerance = 0.05
 
@@ -322,6 +338,7 @@ if __name__ == '__main__':
 
     os.environ['MASKING_P'] = str(args.p)
     os.environ['MASKING_P_INIT'] = str(args.p)
+    os.environ['MASKING_INCRE'] = str(args.p)
 
     os.environ['LOGGING_STEP'] = str(args.logging_steps)
     os.environ['WANDB_PROJECT'] = args.data + ' - v10'
