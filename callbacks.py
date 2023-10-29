@@ -102,7 +102,7 @@ class AdaMaskCallBack(TrainerCallback):
         # trial 1
         # _increment = 0.005
         # _increment = 0.0025
-        _increment = os.getenv('MASKING_INCRE')
+        _increment = float(os.getenv('MASKING_INCRE'))
         ticker = os.environ['P_TICKER']
         if _p < 0.10:
             return

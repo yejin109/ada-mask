@@ -80,19 +80,19 @@ CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch --nproc_per_node 2 /
   --train \
   --data all\
   --cache_dir /data1/ay0119/hf-cache \
-  --model_type bert-large-uncased\
+  --model_type google/bert_uncased_L-2_H-128_A-2 \
   --train_test_split 0.00001\
-  --max_seq_length 128 \
+  --max_seq_length 512 \
   --lr 1e-4 \
   --warmup_steps 10000\
   --adam_beta2 0.999\
   --epochs 40 \
-  --b_train 4 \
-  --gradient_accumulation_steps 2\
+  --b_train 16 \
+  --gradient_accumulation_steps 4\
   --seed 124 \
   --p 0.15 \
   --mask_tolerance 0.01\
-  --mask_increment 0.004\
-  --max_steps 200000\
-  --logging_steps 1000\
-  --save_steps 40000
+  --mask_increment 0.0025\
+  --max_steps 250000\
+  --logging_steps 10000\
+  --save_steps 50000
