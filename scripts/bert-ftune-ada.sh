@@ -7,7 +7,7 @@
 # export CKPT_PATH=/data1/ay0119/ckpts/231016-200742-AdaToken-0.15-63126/checkpoint-900000
 # export CKPT_PATH=/data1/ay0119/ckpts/231018-130805-AdaToken-0.17-124/checkpoint-1000000
 # export CKPT_PATH=/data1/ay0119/ckpts/231019-0830-AdaToken-0.15-71261/checkpoint-1400000
-export CKPT_PATH=/data1/ay0119/ckpts/231009-200603-Const-0.15-124/checkpoint-800000
+export CKPT_PATH=/data1/ay0119/ckpts/231031-0315-AdaToken-0.15-124/checkpoint-250000
 export DEVICE=4
 
 # the best fine-tuning hyperparameters trained for 4 epochs:

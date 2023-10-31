@@ -338,7 +338,7 @@ if __name__ == '__main__':
 
     os.environ['MASKING_P'] = str(args.p)
     os.environ['MASKING_P_INIT'] = str(args.p)
-    os.environ['MASKING_INCRE'] = str(args.p)
+    os.environ['MASKING_INCRE'] = str(args.mask_increment)
 
     os.environ['LOGGING_STEP'] = str(args.logging_steps)
     os.environ['WANDB_PROJECT'] = args.data + ' - v10'
