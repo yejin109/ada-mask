@@ -243,6 +243,7 @@ def main():
     training_args.run_name = '-'.join([str(i) for i in _run_name])
     training_args.output_dir = f'{training_args.output_dir}/{"-".join(model_args.model_name_or_path.split("/")[-2:])}'
     wandb.login(key='5bb26e3124589bc9e7a4d4aa19bd3ea2199e9d14')
+    os.environ['WANDB_BACKBONE'] = model_args.tokenizer_name
     os.environ['WANDB_ENTITY'] = 'yejin109/lmcd'
     os.environ['WANDB_WATCH'] = 'all'
     os.environ['WANDB_PROJECT'] = f'{data_args.task_name} - v11'

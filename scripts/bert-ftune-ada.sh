@@ -1,14 +1,7 @@
-# export CKPT_PATH=/data1/ay0119/bert-tiny-main/all/google/bert_uncased_L-2_H-128_A-2/231009-202410-AdaToken-0.15-124/checkpoint-1000000
-# export CKPT_PATH=/data1/ay0119/bert-tiny-main/all/prajjwal1/bert-tiny/231014-105300-AdaToken-0.15-63126/checkpoint-760000
-# export CKPT_PATH=/data1/ay0119/bert-tiny-main/all/prajjwal1/bert-tiny/231015-164528-AdaToken-0.15-63126/checkpoint-900000
-
-# export CKPT_PATH=/data1/ay0119/ckpts/231014-105300-AdaToken-0.15-63126/checkpoint-920000
-# export CKPT_PATH=/data1/ay0119/ckpts/231015-164528-AdaToken-0.15-63126/checkpoint-900000
-# export CKPT_PATH=/data1/ay0119/ckpts/231016-200742-AdaToken-0.15-63126/checkpoint-900000
-# export CKPT_PATH=/data1/ay0119/ckpts/231018-130805-AdaToken-0.17-124/checkpoint-1000000
-# export CKPT_PATH=/data1/ay0119/ckpts/231019-0830-AdaToken-0.15-71261/checkpoint-1400000
-export CKPT_PATH=/data1/ay0119/ckpts/231031-0315-AdaToken-0.15-124/checkpoint-250000
-export DEVICE=4
+# # Seed = 124, 96831, 
+# export CKPT_PATH=/data1/ay0119/ckpts/231031-0315-AdaToken-0.15-124/checkpoint-250000
+# export DEVICE=4
+# export SEED=96831
 
 # the best fine-tuning hyperparameters trained for 4 epochs:
 #     batch sizes: 8, 16, 32, 64, 128
@@ -29,7 +22,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 10 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --save_steps 2000\
@@ -49,7 +42,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 10 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 100\
@@ -69,7 +62,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 10 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 100\
@@ -89,7 +82,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 5 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 5000\
@@ -109,7 +102,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 10 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 400\
@@ -129,7 +122,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 5 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 3000\
@@ -150,7 +143,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 5 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 5000\
@@ -170,7 +163,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 10 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 400\
@@ -191,7 +184,7 @@ CUDA_VISIBLE_DEVICES=$DEVICE python /home/ay0119/bert-tiny-main/run_glue.py \
   --per_device_train_batch_size 32 \
   --learning_rate 3e-5 \
   --num_train_epochs 20 \
-  --seed 124 \
+  --seed $SEED\
   --cache_dir /data1/ay0119/hf-cache \
   --output_dir /data1/ay0119/bert-tiny-main/$TASK_NAME \
   --logging_steps 100\
