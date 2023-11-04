@@ -89,10 +89,10 @@ CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch --nproc_per_node 2 /
   --epochs 40 \
   --b_train 16 \
   --gradient_accumulation_steps 1\
-  --seed 124 \
+  --seed 91284 \
   --p 0.15 \
   --mask_tolerance 0.02\
-  --mask_increment 0.0025\
-  --max_steps 1000000\
+  --mask_increment 0.002\
+  --max_steps 2000000\
   --logging_steps 50000\
   --save_steps 100000

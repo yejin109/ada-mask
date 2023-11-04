@@ -287,13 +287,20 @@ def compute_metrics(eval_preds, _model, eps=1e-6):
         # past_acc = float(os.environ['TOKEN_ACC_ORG'])
         current_acc = acc_token
         past_acc = float(os.environ['TOKEN_ACC'])
+        # V11 
         if current_acc > past_acc + _tolerance:
             os.environ['P_TICKER'] = 'UP'
         elif current_acc < past_acc - _tolerance:
             os.environ['P_TICKER'] = 'DOWN'
         else:
             os.environ['P_TICKER'] = 'STAY'
-    # if args.ada_token:
+        # if current_acc > past_acc + _tolerance:
+        #     os.environ['P_TICKER'] = 'UP'
+        # elif current_acc < past_acc:
+        #     os.environ['P_TICKER'] = 'DOWN'
+        # else:
+        #     os.environ['P_TICKER'] = 'STAY'
+
     #     current_acc = acc_token
     #     if current_acc > 0.3:
     #         os.environ['P_TICKER'] = 'UP'
