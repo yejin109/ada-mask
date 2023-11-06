@@ -76,7 +76,6 @@
 
 export HF_DATASETS_CACHE="/data1/ay0119/hf-cache"
 CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch --nproc_per_node 2 /home/ay0119/bert-tiny-main/run_pretrain.py \
-  --ada_token \
   --train \
   --data all\
   --cache_dir /data1/ay0119/hf-cache \
