@@ -2,6 +2,7 @@ import torch
 import numpy as np
 import json
 import argparse
+import torch.nn.functional as F
 
 
 parser = argparse.ArgumentParser()
@@ -23,30 +24,34 @@ def measure_repre(_reps1, _reps2):
     norms2 = []
     normsdiff = []
     coses = []
-
+    noise_coses = []
     for _rep1, _rep2 in zip(_reps1, _reps2):
         # Norm
         for _token1, _token2 in zip(_rep1[0], _rep2[0]):
-
+            noise = _token1 - _token2
+            # print(noise.size(), _token1.size(), _token2.size())
             _norm1 = torch.norm(_token1)
             _norm2 = torch.norm(_token2)
 
-            _norm_diff = torch.norm(_token1 - _token2)
+            _norm_diff = torch.norm(noise)
             
             # Cosine sim
             cos = (_token1 * _token2).sum()/(_norm1*_norm2)
+            noise_cos = F.cosine_similarity(noise, _token2, dim=0)
+            # noise_cos = ((_token1 - _token2) * _token2).sum()/(_norm_diff*_norm2)
 
             norms1.append(_norm1.item())
             norms2.append(_norm2.item())
             normsdiff.append(_norm_diff.item())
             coses.append(cos.item())
+            noise_coses.append(noise_cos.item())
     norms1 = np.mean(norms1)
     norms2 = np.mean(norms2)
     normsdiff = np.mean(normsdiff)
     coses = np.mean(coses)
+    noise_coses = np.mean(noise_coses)
 
-
-    return norms1, norms2, normsdiff, coses
+    return norms1, norms2, normsdiff, coses, noise_coses
 
 if __name__ == '__main__':
     args = parser.parse_args()
@@ -67,6 +72,7 @@ if __name__ == '__main__':
         'norm2_normalized': measures[1]/emb_dim,
         'normdiff_normalized': measures[2]/emb_dim,
         'cos': measures[3],
+        'noise_cos': measures[4]
     }
     with open(f'{output_dir}/{args.target_1.split("-")[0]}.json', 'w') as f:
         json.dump(log, f)

@@ -1,4 +1,5 @@
 import os
+import json
 import argparse
 import numpy as np
 from tqdm import tqdm
@@ -142,12 +143,15 @@ def evaluate(_model, _dataset):
 
 
 def print_fmt(_name, _val):
-    print(f'{_name} {np.mean(_val)} +- {np.std(_val)} : {np.mean(_val): .2f}({np.std(_val): .2f})')
+    res = f'{_name} {np.mean(_val)} +- {np.std(_val)} : {np.mean(_val): .2f}({np.std(_val): .2f})'
+    print(res)
+    return res
 
 
 if __name__ == '__main__':
     args = parser.parse_args()
     cache_dir = '/data1/ay0119/hf-cache'
+    output_dir = '/home/ay0119/bert-tiny-main/results/memo_test'
 
     np.random.seed(args.seed)
 
@@ -180,5 +184,23 @@ if __name__ == '__main__':
         rankme_embs.append(rankme_emb)
         rankme_repreps.append(rankme_repre)
 
-    print_fmt('Memorization', memorizations)
+    memo_avg = np.mean(memorization)
+    memo_std = np.std(memorization)
+    memo_log = {
+        f'{args.name_or_path}':{
+            'Mean':f'{memo_avg}',
+            'Std':f'{memo_std}',
+            }
+    }
+    # try:
+    #     with open(f'{output_dir}/memo.json', 'r') as f:
+    #         _log = json.load(f)
+    #         _log = dict(_log, **memo_log)
+    # except:
+    #     _log = memo_log
 
+    # with open(f'{output_dir}/memo.json', 'w') as f:
+    #     json.dump(_log, f)        
+    log = print_fmt('Memorization', memorizations)
+    with open(f'{output_dir}/memo.txt', 'a') as f:
+        f.write(f'{args.name_or_path}\n\t{log}\n')

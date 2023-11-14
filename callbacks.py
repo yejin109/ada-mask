@@ -107,9 +107,9 @@ class AdaMaskCallBack(TrainerCallback):
         if _p < 0.10:
             return
         if ticker == 'UP':
-            os.environ['MASKING_P'] = str(_p + _increment)
-        elif ticker == 'DOWN':
             os.environ['MASKING_P'] = str(_p - _increment)
+        elif ticker == 'DOWN':
+            os.environ['MASKING_P'] = str(_p + _increment)
 
 
 class StepMaskCallBack(TrainerCallback):
