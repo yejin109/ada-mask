@@ -246,7 +246,7 @@ def main():
     os.environ['WANDB_BACKBONE'] = model_args.tokenizer_name
     os.environ['WANDB_ENTITY'] = 'yejin109/lmcd'
     os.environ['WANDB_WATCH'] = 'all'
-    os.environ['WANDB_PROJECT'] = f'{data_args.task_name} - v11'
+    os.environ['WANDB_PROJECT'] = f'{data_args.task_name}-stable'
 
     if model_args.use_auth_token is not None:
         warnings.warn("The `use_auth_token` argument is deprecated and will be removed in v4.34.", FutureWarning)
